@@ -20,14 +20,14 @@ public with sharing class LabelGetter {
         for (String labelApiValue : bodyLabelsApiValue) {
             List<String> extractedLabelApiToValue = labelApiValue.split(LabelResolverController.LABEL_API_TO_VALUE_SEPARATOR);
 
-            if (isListHasValueOnPosition(extractedLabelApiToValue, 0) && isListHasValueOnPosition(extractedLabelApiToValue, 1))
+            if (isListPositionExist(extractedLabelApiToValue, 0) && isListPositionExist(extractedLabelApiToValue, 1))
                 labelsApiNameValue.put(extractedLabelApiToValue[0], extractedLabelApiToValue[1]);
         }
 
         return labelsApiNameValue;
     }
 
-    private static Boolean isListHasValueOnPosition(List<String> elementList, Integer position) {
+    private static Boolean isListPositionExist(List<String> elementList, Integer position) {
         return position <= elementList.size() - 1;
     }
 }
